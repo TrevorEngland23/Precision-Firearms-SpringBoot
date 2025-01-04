@@ -44,10 +44,12 @@ C. Customize the HTML user interface for your customer’s application. The user
 File: mainscreen.html
    Line 14 -> linked new stylesheet to mainscreen.html (mainscreen.css)
    Line 16 -> Changed customer shop name to "Precision Firearms"
-   Line 21 -> Changed default h1 to reflect the shop name (Precision Firearms)
-   Line 22 -> Added svg for the company website
-   Line 24 -> Replaced default parts with "Accessories"
-   Line 56 -> Replaced default product with "Rifles"
+   Lines 20-48 -> Added BootStrap navigation bar for user experience (UX)
+   Line 51 -> Changed default h1 to reflect the shop name (Precision Firearms)
+   Line 52 -> Added svg for the company website
+   Line 54 -> Replaced default parts with "Accessories"
+   Line 86 -> Replaced default product with "Rifles"
+   Line 123-124 -> Added link to required scripts for the BootStrap navbar to work
 
 File: mainscreen.css
    Lines 1 - 162 -> [Full Code](src/main/resources/static/css/mainscreen.css)
