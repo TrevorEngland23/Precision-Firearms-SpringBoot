@@ -39,4 +39,18 @@ Not yet implemented, come back once further.
 
 ## Code Changes
 
+C. Customize the HTML user interface for your customer’s application. The user interface should include the shop name, the product names, and the names of the parts.
+
+File: mainscreen.html
+   Line 14 -> linked new stylesheet to mainscreen.html (mainscreen.css)
+   Line 16 -> Changed customer shop name to "Precision Firearms"
+   Line 21 -> Changed default h1 to reflect the shop name (Precision Firearms)
+   Line 22 -> Added svg for the company website
+   Line 24 -> Replaced default parts with "Accessories"
+   Line 56 -> Replaced default product with "Rifles"
+
+File: mainscreen.css
+   Lines 1 - 162 -> [Full Code](src/main/resources/static/css/mainscreen.css)
+
+
 
