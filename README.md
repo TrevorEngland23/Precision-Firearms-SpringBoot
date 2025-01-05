@@ -51,7 +51,15 @@ File: mainscreen.html
    **Line 71** -> Replaced default product with "Rifles"
 
 File: mainscreen.css  
-   **Lines 1-141** -> [Full Code](src/main/resources/static/css/mainscreen.css)
+   **Lines 1-141** -> Added file [Full Code](src/main/resources/static/css/mainscreen.css)
 
+D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.  
 
+File: AboutController.java  
+   **Lines 1-13** -> Added file [Full Code](/src/main/java/com/example/demo/controllers/AboutController.java)  
 
+File: about.html  
+   **LINES 1-127** -> Added about page for customer software application. [Full Code](/src/main/resources/templates/about.html)  
+
+File: about.css  
+   **LINES 1-99** -> Added CSS file for the about page to match the theme of the application. [Full Code](/src/main/resources/static/css/about.css)  
