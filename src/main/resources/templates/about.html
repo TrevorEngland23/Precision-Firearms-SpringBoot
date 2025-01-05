@@ -1,13 +1,127 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About - Precision Firearms</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" th:href="@{/css/about.css}">
+
+    <title>Precision Firearms</title>
 </head>
 <body>
-<h1>About Us</h1>
-<p>Welcome to Precision Firearms! We specialize in quality firearms and accessories.</p>
-<a href="/mainscreen">Back to Home</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand" style="color: #d4af37">Precision Firearms</span>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/mainscreen">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="about" th:href="'/about'">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1>PRECISION FIREARMS</h1>
+    <img src="https://www.svgrepo.com/show/68180/shooting-target.svg" alt="bullseye">
+    <hr>
+    <br>
+
+
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    About Us
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>Welcome to <strong>Precision Firearms</strong>, a veteran owned firearm supply store where passion for excellence and commitment to our customers drive everything we do. Our mission is simple: to provide top-quality firearms and accessories, exceptional service, and a trustworthy experience that makes our customers feel valued, empowered, and confident in their choices.</p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Our Mission
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p><strong>Our Mission at Precision Firearms</strong> is to provide firearm enthusiasts with high-quality, reliable products that enhance both performance and safety. We are committed to offering exceptional customer service, fostering trust, and delivering value with every purchase. At Precision Firearms, we strive to build a loyal community of responsible owners and enthusiasts who appreciate the craftsmanship behind each product we offer. Our mission is to empower our customers by equipping them with the tools they need to succeed, while maintaining the highest standards of safety, service, and integrity.</p>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Join the Squad
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>To learn more about our business and receive updates, sign up <a class="signup" href="#" data-bs-toggle="modal" data-bs-target="#signup">here</a>.</p>
+                    <div class="modal fade" id="signup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Register an Email</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="emailInput" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" id="emailInput" placeholder="user@example.com">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn" id="submitBtn" style="background-color: #d4af37">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<script>
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // got this from Google after spending way too long trying to cover all edge cases...
+        return emailRegex.test(email);
+    }
+    const submitBtn = document.getElementById('submitBtn');
+    let userEmail = document.getElementById('emailInput');
+    const modalHTML = document.getElementById('signup');
+    const modal = new bootstrap.Modal(modalHTML);
+
+
+    submitBtn.addEventListener('click', () => {
+        const emailInput = userEmail.value.trim();
+        if (validateEmail(emailInput)) {
+            userEmail.value = '';
+            alert("Welcome to the squad " + emailInput + "!");
+            modal.hide();
+        } else {
+            alert("Please enter a valid email!")
+        }
+    });
+</script>
 </body>
 </html>
