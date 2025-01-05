@@ -11,6 +11,15 @@ body {
     line-height: 1.6;
 }
 
+#home {
+    text-decoration: underline;
+    text-decoration-color: #d4af37;
+}
+
+.nav-link:hover {
+    text-decoration: none;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
