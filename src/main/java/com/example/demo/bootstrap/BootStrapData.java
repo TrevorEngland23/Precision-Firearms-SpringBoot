@@ -46,23 +46,25 @@ public class BootStrapData implements CommandLineRunner {
         }
 
         int numParts = (int) partRepository.count();
-        int numProducts = (int) partRepository.count();
+        int numProducts = (int) productRepository.count();
 
             Set<Product> products = new HashSet<Product>();
             Set<Part> parts = new HashSet<Part>();
 
-            Product firstProduct = new Product("Bolt-Action Rifle", 900.00, 12);
-            Product secondProduct = new Product("Semi-Automatic Rifle", 1500.00, 22);
-            Product thirdProduct = new Product("Long-Range Rifle", 519.00, 7);
-            Product fourthProduct = new Product("Youth Rifle", 200.00, 35);
-            Product fifthProduct = new Product("Pump-Action Rifle", 599.00, 19);
+            Product firstProduct = new Product(1,"Bolt-Action Rifle", 900.00, 12);
+            Product secondProduct = new Product(2,"Semi-Automatic Rifle", 1500.00, 22);
+            Product thirdProduct = new Product(3,"Long-Range Rifle", 519.00, 7);
+            Product fourthProduct = new Product(4,"Youth Rifle", 200.00, 35);
+            Product fifthProduct = new Product(5,"Pump-Action Rifle", 599.00, 19);
+
 
             products.add(firstProduct);
             products.add(secondProduct);
             products.add(thirdProduct);
             products.add(fourthProduct);
             products.add(fifthProduct);
-            productRepository.saveAll(products);
+
+
 
             InhousePart firstInhousePart = new InhousePart();
             firstInhousePart.setId(100);
@@ -102,14 +104,18 @@ public class BootStrapData implements CommandLineRunner {
             parts.add(firstOutsourcedPart);
             parts.add(secondOutsourcedPart);
 
-            if (numParts == 0 && numProducts == 0) {
-                for (Product product: products) {
+            if (numProducts == 0) {
+                for (Product product : products) {
                     productRepository.save(product);
                 }
-                for (Part part: parts) {
-                    partRepository.save(part);
-                }
             }
+
+        if (numParts == 0) {
+
+            for (Part part: parts) {
+                partRepository.save(part);
+            }
+        }
 
 
        /*
