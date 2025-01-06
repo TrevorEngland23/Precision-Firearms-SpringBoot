@@ -41,7 +41,7 @@ Not yet implemented, come back once further.
 
 C. Customize the HTML user interface for your customer’s application. The user interface should include the shop name, the product names, and the names of the parts.
 
-File: mainscreen.html  
+File: *mainscreen.html*   
    **Line 14** -> linked new stylesheet to mainscreen.html (mainscreen.css)  
    **Line 16** -> Changed customer shop name to "Precision Firearms"  
    **Lines 19-33** -> Added BootStrap navigation bar for user experience (UX)  
@@ -50,23 +50,23 @@ File: mainscreen.html
    **Line 39** -> Replaced default parts with "Accessories"  
    **Line 71** -> Replaced default product with "Rifles"
 
-File: mainscreen.css  
+File: *mainscreen.css*  
    **Lines 1-141** -> Added file [Full Code](src/main/resources/static/css/mainscreen.css)
 
 D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.  
 
-File: AboutController.java  
+File: *AboutController.java*  
    **Lines 1-13** -> Added file [Full Code](/src/main/java/com/example/demo/controllers/AboutController.java)  
 
-File: about.html  
+File: *about.html*  
    **LINES 1-127** -> Added about page for customer software application. [Full Code](/src/main/resources/templates/about.html)  
 
-File: about.css  
+File: *about.css*  
    **LINES 1-99** -> Added CSS file for the about page to match the theme of the application. [Full Code](/src/main/resources/static/css/about.css)  
 
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.  
 
-File: BootStrapData.java
+File: *BootStrapData.java*
    **Lines 43-126** -> Added functionality to add 5 parts and 5 products using constructor of part and product classes and putting the data into a HashSet. [Full Code](/src/main/java/com/example/demo/bootstrap/BootStrapData.java)  
 
 F.  Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:  
@@ -74,11 +74,11 @@ F.  Add a “Buy Now” button to your product list. Your “Buy Now” button m
 •  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.  
 •  Display a message that indicates the success or failure of a purchase.  
 
-File: successfulpurchase.html
+File: *successfulpurchase.html*  
    **Lines 1-31** -> Added HTML page for successful purchases. [Full Code](/src/main/resources/templates/successfulpurchase.html)  
 
-File: unsuccessfulpurchase.html
+File: *unsuccessfulpurchase.html*  
    **Lines 1-15** -> Added HTML page for unsuccessful purchases. [Full Code](/src/main/resources/templates/unsuccessfulpurchase.html)  
 
-File mainscreen.html
-   **Line 101** -> Added buy now button for products
+File *mainscreen.html*  
+   **Line 101** -> Added buy now button for productsfdfd
