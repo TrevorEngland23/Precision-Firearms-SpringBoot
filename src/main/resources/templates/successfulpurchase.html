@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--    <meta charset="UTF-8">-->
+    <meta http-equiv="refresh"
+          content="0;URL='mainscreen'">
+    <title>Title</title>
+</head>
+<body>
+<h1>Purchase Complete. Thank you for shopping with Precision Firearms, enjoy this discount code for 10% off your next purchase.</h1>
+<code id="coupon-code"></code>
+
+<a href="http://localhost:8080/">Link
+    to Main Screen</a>
+
+<script>
+    function discountCode() {
+        let code = "";
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (let i = 0; i < 8; i++) {
+            let random = Math.floor(Math.random() * chars.length);
+            code += chars[random];
+        }
+
+        document.getElementById("coupon-code").textContent = "Code: " + code;
+    }
+
+    window.onload = discountCode();
+</script>
+</body>
+</html>
