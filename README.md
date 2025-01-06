@@ -64,4 +64,21 @@ File: about.html
 File: about.css  
    **LINES 1-99** -> Added CSS file for the about page to match the theme of the application. [Full Code](/src/main/resources/static/css/about.css)  
 
-E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
+E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.  
+
+File: BootStrapData.java
+   **Lines 43-126** -> Added functionality to add 5 parts and 5 products using constructor of part and product classes and putting the data into a HashSet. [Full Code](/src/main/java/com/example/demo/bootstrap/BootStrapData.java)  
+
+F.  Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:  
+•  The “Buy Now” button must be next to the buttons that update and delete products.  
+•  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.  
+•  Display a message that indicates the success or failure of a purchase.  
+
+File: successfulpurchase.html
+   **Lines 1-31** -> Added HTML page for successful purchases. [Full Code](/src/main/resources/templates/successfulpurchase.html)  
+
+File: unsuccessfulpurchase.html
+   **Lines 1-15** -> Added HTML page for unsuccessful purchases. [Full Code](/src/main/resources/templates/unsuccessfulpurchase.html)  
+
+File mainscreen.html
+   **Line 101** -> Added buy now button for products
