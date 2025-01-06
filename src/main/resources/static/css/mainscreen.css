@@ -74,7 +74,6 @@ table {
     margin-top: 20px;
     border-collapse: collapse;
     background-color: #1f1f1f;
-    color: #e0e0e0;
 }
 
 thead {
@@ -96,10 +95,11 @@ tbody tr {
 
 tbody tr:nth-child(odd) {
     background-color: #292929;
+
 }
 
 tbody tr:nth-child(even) {
-    background-color: #212121;
+    background-color: #292929;
 }
 
 tbody tr:hover {
@@ -110,7 +110,6 @@ td {
     padding: 10px;
     text-align: center;
 }
-
 
 input[type="text"] {
     width: 50%;

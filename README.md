@@ -81,4 +81,4 @@ File: *unsuccessfulpurchase.html*
    **Lines 1-15** -> Added HTML page for unsuccessful purchases. [Full Code](/src/main/resources/templates/unsuccessfulpurchase.html)  
 
 File *mainscreen.html*  
-   **Line 101** -> Added buy now button for productsfdfd
+   **Line 101** -> Added buy now button for successful purchases  
