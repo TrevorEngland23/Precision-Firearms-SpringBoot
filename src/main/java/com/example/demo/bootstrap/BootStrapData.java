@@ -1,8 +1,10 @@
 package com.example.demo.bootstrap;
 
+import com.example.demo.domain.InhousePart;
 import com.example.demo.domain.OutsourcedPart;
 import com.example.demo.domain.Part;
 import com.example.demo.domain.Product;
+import com.example.demo.repositories.InhousePartRepository;
 import com.example.demo.repositories.OutsourcedPartRepository;
 import com.example.demo.repositories.PartRepository;
 import com.example.demo.repositories.ProductRepository;
@@ -13,8 +15,7 @@ import com.example.demo.service.ProductServiceImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  *
@@ -27,17 +28,89 @@ public class BootStrapData implements CommandLineRunner {
 
     private final PartRepository partRepository;
     private final ProductRepository productRepository;
-
     private final OutsourcedPartRepository outsourcedPartRepository;
 
     public BootStrapData(PartRepository partRepository, ProductRepository productRepository, OutsourcedPartRepository outsourcedPartRepository) {
         this.partRepository = partRepository;
         this.productRepository = productRepository;
-        this.outsourcedPartRepository=outsourcedPartRepository;
+        this.outsourcedPartRepository = outsourcedPartRepository;
     }
+
 
     @Override
     public void run(String... args) throws Exception {
+
+        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
+        for(OutsourcedPart part:outsourcedParts){
+            System.out.println(part.getName()+" "+part.getCompanyName());
+        }
+
+        int numParts = (int) partRepository.count();
+        int numProducts = (int) partRepository.count();
+
+            Set<Product> products = new HashSet<Product>();
+            Set<Part> parts = new HashSet<Part>();
+
+            Product firstProduct = new Product("Bolt-Action Rifle", 900.00, 12);
+            Product secondProduct = new Product("Semi-Automatic Rifle", 1500.00, 22);
+            Product thirdProduct = new Product("Long-Range Rifle", 519.00, 7);
+            Product fourthProduct = new Product("Youth Rifle", 200.00, 35);
+            Product fifthProduct = new Product("Pump-Action Rifle", 599.00, 19);
+
+            products.add(firstProduct);
+            products.add(secondProduct);
+            products.add(thirdProduct);
+            products.add(fourthProduct);
+            products.add(fifthProduct);
+            productRepository.saveAll(products);
+
+            InhousePart firstInhousePart = new InhousePart();
+            firstInhousePart.setId(100);
+            firstInhousePart.setName("Trigger Assembly");
+            firstInhousePart.setPrice(250.00);
+            firstInhousePart.setInv(40);
+
+            InhousePart secondInhousePart = new InhousePart();
+            secondInhousePart.setId(202);
+            secondInhousePart.setName("Foregrip");
+            secondInhousePart.setPrice(150.00);
+            secondInhousePart.setInv(34);
+
+            InhousePart thirdInhousePart = new InhousePart();
+            thirdInhousePart.setId(252);
+            thirdInhousePart.setName("Stock");
+            thirdInhousePart.setPrice(350.00);
+            thirdInhousePart.setInv(45);
+
+            OutsourcedPart firstOutsourcedPart = new OutsourcedPart();
+            firstOutsourcedPart.setCompanyName("Bell-Toll");
+            firstOutsourcedPart.setId(900);
+            firstOutsourcedPart.setName("Optics");
+            firstOutsourcedPart.setPrice(700.00);
+            firstOutsourcedPart.setInv(250);
+
+            OutsourcedPart secondOutsourcedPart = new OutsourcedPart();
+            secondOutsourcedPart.setCompanyName("Black Anchor");
+            secondOutsourcedPart.setId(950);
+            secondOutsourcedPart.setName("Barrel");
+            secondOutsourcedPart.setPrice(500.00);
+            secondOutsourcedPart.setInv(145);
+
+            parts.add(firstInhousePart);
+            parts.add(secondInhousePart);
+            parts.add(thirdInhousePart);
+            parts.add(firstOutsourcedPart);
+            parts.add(secondOutsourcedPart);
+
+            if (numParts == 0 && numProducts == 0) {
+                for (Product product: products) {
+                    productRepository.save(product);
+                }
+                for (Part part: parts) {
+                    partRepository.save(part);
+                }
+            }
+
 
        /*
         OutsourcedPart o= new OutsourcedPart();
@@ -55,10 +128,6 @@ public class BootStrapData implements CommandLineRunner {
 
         System.out.println(thePart.getCompanyName());
         */
-        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            System.out.println(part.getName()+" "+part.getCompanyName());
-        }
 
         /*
         Product bicycle= new Product("bicycle",100.0,15);
