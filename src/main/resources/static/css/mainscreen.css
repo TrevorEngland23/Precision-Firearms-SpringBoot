@@ -147,3 +147,7 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.btn-primary:focus {
+    background-color: #444;
+}
