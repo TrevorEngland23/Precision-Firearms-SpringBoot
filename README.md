@@ -66,7 +66,7 @@ File: *about.css*
 
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.  
 
-File: *BootStrapData.java*
+File: *BootStrapData.java*  
    **Lines 43-126** -> Added functionality to add 5 parts and 5 products using constructor of part and product classes and putting the data into a HashSet. [Full Code](/src/main/java/com/example/demo/bootstrap/BootStrapData.java)  
 
 F.  Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:  
@@ -74,11 +74,32 @@ F.  Add a “Buy Now” button to your product list. Your “Buy Now” button m
 •  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.  
 •  Display a message that indicates the success or failure of a purchase.  
 
+File *mainscreen.html*  
+**Line 101** -> Added buy now button for successful purchases  
+
 File: *successfulpurchase.html*  
-   **Lines 1-31** -> Added HTML page for successful purchases. [Full Code](/src/main/resources/templates/successfulpurchase.html)  
+   **Lines 1-32** -> Added HTML page for successful purchases. [Full Code](/src/main/resources/templates/successfulpurchase.html)  
 
 File: *unsuccessfulpurchase.html*  
-   **Lines 1-15** -> Added HTML page for unsuccessful purchases. [Full Code](/src/main/resources/templates/unsuccessfulpurchase.html)  
+   **Lines 1-16** -> Added HTML page for unsuccessful purchases. [Full Code](/src/main/resources/templates/unsuccessfulpurchase.html)  
 
-File *mainscreen.html*  
-   **Line 101** -> Added buy now button for successful purchases  
+File: *BuyNowController*  
+**Lines 1-31** -> Added a controller for the buyNow webpage. Ensures that a product out of stock cannot be purchased, and any product that is purchased is decremented in quantity by 1. [Full Code](/src/main/java/com/example/demo/controllers/BuyNowController.java)  
+
+File: *successfulpurchase.css*  
+**Lines 1-34** -> Added a style sheet to match the theme of the application for successpurchase.html  
+
+File: *unsuccessfulpurchase.html*  
+**Lines 1-34** -> Added a style sheet to match the theme of the application for unsuccessfulpurchase.html  
+
+G.  Modify the parts to track maximum and minimum inventory by doing the following:  
+•  Add additional fields to the part entity for maximum and minimum inventory.  
+•  Modify the sample inventory to include the maximum and minimum fields.  
+•  Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.  
+•  Rename the file the persistent storage is saved to.  
+•  Modify the code to enforce that the inventory is between or at the minimum and maximum value.  
+
+
+
+
+
