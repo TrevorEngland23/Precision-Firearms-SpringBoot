@@ -70,7 +70,7 @@ public class BootStrapData implements CommandLineRunner {
             firstInhousePart.setName("Trigger Assembly");
             firstInhousePart.setPrice(250.00);
             firstInhousePart.setInv(40);
-            firstInhousePart.setMinInv(0);
+            firstInhousePart.setMinInv(1);
             firstInhousePart.setMaxInv(250);
 
             InhousePart secondInhousePart = new InhousePart();
@@ -78,7 +78,7 @@ public class BootStrapData implements CommandLineRunner {
             secondInhousePart.setName("Foregrip");
             secondInhousePart.setPrice(150.00);
             secondInhousePart.setInv(34);
-            secondInhousePart.setMinInv(0);
+            secondInhousePart.setMinInv(1);
             secondInhousePart.setMaxInv(100);
 
             InhousePart thirdInhousePart = new InhousePart();
@@ -86,7 +86,7 @@ public class BootStrapData implements CommandLineRunner {
             thirdInhousePart.setName("Stock");
             thirdInhousePart.setPrice(350.00);
             thirdInhousePart.setInv(45);
-            thirdInhousePart.setMinInv(0);
+            thirdInhousePart.setMinInv(1);
             thirdInhousePart.setMaxInv(95);
 
             OutsourcedPart firstOutsourcedPart = new OutsourcedPart();
@@ -95,7 +95,7 @@ public class BootStrapData implements CommandLineRunner {
             firstOutsourcedPart.setName("Optics");
             firstOutsourcedPart.setPrice(700.00);
             firstOutsourcedPart.setInv(250);
-            firstOutsourcedPart.setMinInv(0);
+            firstOutsourcedPart.setMinInv(1);
             firstOutsourcedPart.setMaxInv(275);
 
             OutsourcedPart secondOutsourcedPart = new OutsourcedPart();
@@ -104,8 +104,9 @@ public class BootStrapData implements CommandLineRunner {
             secondOutsourcedPart.setName("Barrel");
             secondOutsourcedPart.setPrice(500.00);
             secondOutsourcedPart.setInv(145);
-            secondOutsourcedPart.setMinInv(0);
+            secondOutsourcedPart.setMinInv(1);
             secondOutsourcedPart.setMaxInv(200);
+            System.out.println(firstOutsourcedPart.toString());
 
             parts.add(firstInhousePart);
             parts.add(secondInhousePart);
