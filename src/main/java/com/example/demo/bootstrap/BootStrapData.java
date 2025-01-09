@@ -65,24 +65,29 @@ public class BootStrapData implements CommandLineRunner {
             products.add(fifthProduct);
 
 
-
             InhousePart firstInhousePart = new InhousePart();
             firstInhousePart.setId(100);
             firstInhousePart.setName("Trigger Assembly");
             firstInhousePart.setPrice(250.00);
             firstInhousePart.setInv(40);
+            firstInhousePart.setMinInv(0);
+            firstInhousePart.setMaxInv(250);
 
             InhousePart secondInhousePart = new InhousePart();
             secondInhousePart.setId(202);
             secondInhousePart.setName("Foregrip");
             secondInhousePart.setPrice(150.00);
             secondInhousePart.setInv(34);
+            secondInhousePart.setMinInv(0);
+            secondInhousePart.setMaxInv(100);
 
             InhousePart thirdInhousePart = new InhousePart();
             thirdInhousePart.setId(252);
             thirdInhousePart.setName("Stock");
             thirdInhousePart.setPrice(350.00);
             thirdInhousePart.setInv(45);
+            thirdInhousePart.setMinInv(0);
+            thirdInhousePart.setMaxInv(95);
 
             OutsourcedPart firstOutsourcedPart = new OutsourcedPart();
             firstOutsourcedPart.setCompanyName("Bell-Toll");
@@ -90,6 +95,8 @@ public class BootStrapData implements CommandLineRunner {
             firstOutsourcedPart.setName("Optics");
             firstOutsourcedPart.setPrice(700.00);
             firstOutsourcedPart.setInv(250);
+            firstOutsourcedPart.setMinInv(0);
+            firstOutsourcedPart.setMaxInv(275);
 
             OutsourcedPart secondOutsourcedPart = new OutsourcedPart();
             secondOutsourcedPart.setCompanyName("Black Anchor");
@@ -97,6 +104,8 @@ public class BootStrapData implements CommandLineRunner {
             secondOutsourcedPart.setName("Barrel");
             secondOutsourcedPart.setPrice(500.00);
             secondOutsourcedPart.setInv(145);
+            secondOutsourcedPart.setMinInv(0);
+            secondOutsourcedPart.setMaxInv(200);
 
             parts.add(firstInhousePart);
             parts.add(secondInhousePart);
