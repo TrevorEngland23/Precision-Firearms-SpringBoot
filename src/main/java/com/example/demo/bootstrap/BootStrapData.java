@@ -133,9 +133,6 @@ public class BootStrapData implements CommandLineRunner {
         System.out.println(partRepository.findAll());
     }
 }
-
-
-
        /*
         OutsourcedPart o= new OutsourcedPart();
         o.setCompanyName("Western Governors University");
