@@ -27,8 +27,6 @@ import java.util.*;
  */
 @Component
 public class BootStrapData implements CommandLineRunner {
-    @PersistenceContext
-    private EntityManager em;
 
     private final PartRepository partRepository;
     private final ProductRepository productRepository;
@@ -47,10 +45,8 @@ public class BootStrapData implements CommandLineRunner {
         for(OutsourcedPart part:outsourcedParts){
             System.out.println(part.getName()+" "+part.getCompanyName());
         }
-
-        int numParts = (int) partRepository.count();
-        int numProducts = (int) productRepository.count();
-
+            int numParts = (int)partRepository.count();
+            int numProducts = (int)productRepository.count();
             Set<Product> products = new HashSet<Product>();
             Set<Part> parts = new HashSet<Part>();
 
@@ -70,6 +66,7 @@ public class BootStrapData implements CommandLineRunner {
 
             InhousePart firstInhousePart = new InhousePart();
             firstInhousePart.setName("Trigger Assembly");
+            firstInhousePart.setId(99);
             firstInhousePart.setPrice(250.00);
             firstInhousePart.setInv(40);
             firstInhousePart.setMinInv(0);
@@ -77,6 +74,7 @@ public class BootStrapData implements CommandLineRunner {
 
             InhousePart secondInhousePart = new InhousePart();
             secondInhousePart.setName("Foregrip");
+            secondInhousePart.setId(90);
             secondInhousePart.setPrice(150.00);
             secondInhousePart.setInv(34);
             secondInhousePart.setMinInv(0);
@@ -85,6 +83,7 @@ public class BootStrapData implements CommandLineRunner {
 
             InhousePart thirdInhousePart = new InhousePart();
             thirdInhousePart.setName("Stock");
+            thirdInhousePart.setId(100);
             thirdInhousePart.setPrice(350.00);
             thirdInhousePart.setInv(45);
             thirdInhousePart.setMinInv(0);
@@ -92,6 +91,7 @@ public class BootStrapData implements CommandLineRunner {
 
             OutsourcedPart firstOutsourcedPart = new OutsourcedPart();
             firstOutsourcedPart.setCompanyName("Bell-Toll");
+            firstOutsourcedPart.setId(101);
             firstOutsourcedPart.setName("Optics");
             firstOutsourcedPart.setPrice(700.00);
             firstOutsourcedPart.setInv(250);
@@ -101,6 +101,7 @@ public class BootStrapData implements CommandLineRunner {
             OutsourcedPart secondOutsourcedPart = new OutsourcedPart();
             secondOutsourcedPart.setCompanyName("Black Anchor");
             secondOutsourcedPart.setName("Barrel");
+            secondOutsourcedPart.setId(50);
             secondOutsourcedPart.setPrice(500.00);
             secondOutsourcedPart.setInv(145);
             secondOutsourcedPart.setMinInv(0);
@@ -122,17 +123,8 @@ public class BootStrapData implements CommandLineRunner {
 
             for (Part part: parts) {
                 partRepository.save(part);
-                em.flush();
-                System.out.println(part.getName()+" "+part.getId());
             }
         }
-        System.out.println("Saved parts: " + firstInhousePart.getPartId());
-        System.out.println("Saved parts: " + secondInhousePart.getPartId());
-        System.out.println("Saved parts: " + thirdInhousePart.getId());
-        System.out.println("Saved parts: " + firstOutsourcedPart.getId());
-        System.out.println("Saved parts: " + secondOutsourcedPart.getId());
-
-
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Products: "+productRepository.count());
         System.out.println(productRepository.findAll());
@@ -140,26 +132,4 @@ public class BootStrapData implements CommandLineRunner {
         System.out.println(partRepository.findAll());
     }
 }
-       /*
-        OutsourcedPart o= new OutsourcedPart();
-        o.setCompanyName("Western Governors University");
-        o.setName("out test");
-        o.setInv(5);
-        o.setPrice(20.0);
-        o.setId(100L);
-        outsourcedPartRepository.save(o);
-        OutsourcedPart thePart=null;
-        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            if(part.getName().equals("out test"))thePart=part;
-        }
 
-        System.out.println(thePart.getCompanyName());
-        */
-
-        /*
-        Product bicycle= new Product("bicycle",100.0,15);
-        Product unicycle= new Product("unicycle",100.0,15);
-        productRepository.save(bicycle);
-        productRepository.save(unicycle);
-        */
