@@ -117,7 +117,21 @@ File: *spring-boot.h2.db102.mv.db
    Renamed file to **precision-firearms-db** and updated the url accordingly.  
 
 File: *application.properties*
-   **Line 6** -> updated url to database
+   **Line 6** -> Updated the url to the database to *jdbc:h2:~/precision-firearms-db*.  
+
+File: *Part.java*  
+   **Lines 119-130** -> Added a method isValid() that enforces logical rules on the minimum and maximum values. Throws an exception in the event a rule is broken.  
+
+File: *AddOutsourcedPartController.java*
+   **Lines 41-58** -> Changed the @PostMapping logic to enforce the use of the isValid() method defined in Part.java.  
+
+File *AddInhousePartController.java*  
+   **Lines 42-59** -> Changed the @PostMapping logic to enforce the use of the isValid() method in Part.java.  
+
+Files *updateprod.css*, *productform.css*  
+   **Lines 1-111**, **1-172** (respectively) -> Added stylesheets to fit the theme of the application.  
+
+
 
 
 
