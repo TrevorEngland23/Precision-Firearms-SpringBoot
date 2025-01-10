@@ -68,8 +68,6 @@ public abstract class Part implements Serializable {
         this.maxInv = maxInv;
     }
 
-
-
     public long getId() {
         return id;
     }
@@ -121,28 +119,16 @@ public abstract class Part implements Serializable {
     public boolean isValid() {
 
         if (minInv != null && maxInv != null && minInv > maxInv) {
-            throw new RuntimeException("Invalid inventory values: Min cannot be greater than Max");
+            throw new RuntimeException("Invalid inventory values: Minimum Inventory cannot be greater than Maximum Inventory!");
         }
-        if (inv != 0 && (inv < minInv || inv > maxInv)) {
+        if (minInv == null || maxInv == null) {
+            throw new RuntimeException("Invalid inventory values: Minimum and Maximum Inventory must be set!");
+        }
+        if (inv < minInv || inv > maxInv) {
             throw new RuntimeException("Invalid inventory values: Inventory is out of range");
         }
         return true;
-
-//        if (this.inv < 0) {
-//            throw new RuntimeException("Invalid inventory values: Inventory cannot be null");
-//        }
-//        if (this.minInv == null || this.maxInv == null) {
-//            throw new RuntimeException("Invalid inventory values: Min or Max cannot be null");
-//        }
-//        if (this.minInv > this.maxInv) {
-//            throw new RuntimeException("Invalid inventory values: Min cannot be greater than Max");
-//        }
-//        if (this.inv < this.minInv || this.getInv()> this.getMaxInv()) {
-//            throw new RuntimeException("Invalid inventory values: Inventory is out of range");
-//        }
-//        return true;
     }
-
 
     public Set<Product> getProducts() {
         return products;
