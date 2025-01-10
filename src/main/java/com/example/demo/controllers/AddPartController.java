@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+import static com.example.demo.service.PartServiceImpl.*;
+
 /**
  *
  *
@@ -25,6 +27,7 @@ import java.util.List;
 public class AddPartController {
     @Autowired
     private ApplicationContext context;
+    private PartServiceImpl partService;
 
     @GetMapping("/showPartFormForUpdate")
     public String showPartFormForUpdate(@RequestParam("partID") int theId,Model theModel){
@@ -51,6 +54,26 @@ public class AddPartController {
         }
         return formtype;
     }
+
+    @PostMapping("/showFormForUpdate")
+    public String updatePart(@ModelAttribute("part") @Valid Part thePart,
+                             BindingResult theBindingResult, Model theModel) {
+
+        if (theBindingResult.hasErrors()) {
+            return "showFormForUpdate";  // Return back to the form with error messages
+        }
+
+        try {
+            partService.save(thePart);  // Save the updated part
+        } catch (RuntimeException e) {
+            theModel.addAttribute("error", e.getMessage());  // Display the error message
+            return "showFormForUpdate";  // Return back to the form with the error
+        }
+
+        partService.save(thePart);  // Save the updated part
+        return "redirect:/confirmationAddPart";  // Redirect after successful save
+    }
+
 
     @GetMapping("/deletepart")
     public String deletePart(@Valid @RequestParam("partID") int theId,  Model theModel){

@@ -15,6 +15,8 @@ import com.example.demo.service.ProductServiceImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.*;
 
 /**
@@ -25,6 +27,8 @@ import java.util.*;
  */
 @Component
 public class BootStrapData implements CommandLineRunner {
+    @PersistenceContext
+    private EntityManager em;
 
     private final PartRepository partRepository;
     private final ProductRepository productRepository;
@@ -39,7 +43,6 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
         List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
         for(OutsourcedPart part:outsourcedParts){
             System.out.println(part.getName()+" "+part.getCompanyName());
@@ -66,47 +69,42 @@ public class BootStrapData implements CommandLineRunner {
 
 
             InhousePart firstInhousePart = new InhousePart();
-            firstInhousePart.setId(100);
             firstInhousePart.setName("Trigger Assembly");
             firstInhousePart.setPrice(250.00);
             firstInhousePart.setInv(40);
-            firstInhousePart.setMinInv(1);
-            firstInhousePart.setMaxInv(250);
+            firstInhousePart.setMinInv(0);
+            firstInhousePart.setMaxInv(75);
 
             InhousePart secondInhousePart = new InhousePart();
-            secondInhousePart.setId(202);
             secondInhousePart.setName("Foregrip");
             secondInhousePart.setPrice(150.00);
             secondInhousePart.setInv(34);
-            secondInhousePart.setMinInv(1);
+            secondInhousePart.setMinInv(0);
             secondInhousePart.setMaxInv(100);
 
+
             InhousePart thirdInhousePart = new InhousePart();
-            thirdInhousePart.setId(252);
             thirdInhousePart.setName("Stock");
             thirdInhousePart.setPrice(350.00);
             thirdInhousePart.setInv(45);
-            thirdInhousePart.setMinInv(1);
+            thirdInhousePart.setMinInv(0);
             thirdInhousePart.setMaxInv(95);
 
             OutsourcedPart firstOutsourcedPart = new OutsourcedPart();
             firstOutsourcedPart.setCompanyName("Bell-Toll");
-            firstOutsourcedPart.setId(900);
             firstOutsourcedPart.setName("Optics");
             firstOutsourcedPart.setPrice(700.00);
             firstOutsourcedPart.setInv(250);
-            firstOutsourcedPart.setMinInv(1);
+            firstOutsourcedPart.setMinInv(0);
             firstOutsourcedPart.setMaxInv(275);
 
             OutsourcedPart secondOutsourcedPart = new OutsourcedPart();
             secondOutsourcedPart.setCompanyName("Black Anchor");
-            secondOutsourcedPart.setId(950);
             secondOutsourcedPart.setName("Barrel");
             secondOutsourcedPart.setPrice(500.00);
             secondOutsourcedPart.setInv(145);
-            secondOutsourcedPart.setMinInv(1);
+            secondOutsourcedPart.setMinInv(0);
             secondOutsourcedPart.setMaxInv(200);
-            System.out.println(firstOutsourcedPart.toString());
 
             parts.add(firstInhousePart);
             parts.add(secondInhousePart);
@@ -124,8 +122,16 @@ public class BootStrapData implements CommandLineRunner {
 
             for (Part part: parts) {
                 partRepository.save(part);
+                em.flush();
+                System.out.println(part.getName()+" "+part.getId());
             }
         }
+        System.out.println("Saved parts: " + firstInhousePart.getPartId());
+        System.out.println("Saved parts: " + secondInhousePart.getPartId());
+        System.out.println("Saved parts: " + thirdInhousePart.getId());
+        System.out.println("Saved parts: " + firstOutsourcedPart.getId());
+        System.out.println("Saved parts: " + secondOutsourcedPart.getId());
+
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Products: "+productRepository.count());

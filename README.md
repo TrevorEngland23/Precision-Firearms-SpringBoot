@@ -75,7 +75,7 @@ F.  Add a “Buy Now” button to your product list. Your “Buy Now” button m
 •  Display a message that indicates the success or failure of a purchase.  
 
 File *mainscreen.html*  
-**Line 101** -> Added buy now button for successful purchases  
+   **Line 101** -> Added buy now button for successful purchases  
 
 File: *successfulpurchase.html*  
    **Lines 1-32** -> Added HTML page for successful purchases. [Full Code](/src/main/resources/templates/successfulpurchase.html)  
@@ -84,20 +84,42 @@ File: *unsuccessfulpurchase.html*
    **Lines 1-16** -> Added HTML page for unsuccessful purchases. [Full Code](/src/main/resources/templates/unsuccessfulpurchase.html)  
 
 File: *BuyNowController*  
-**Lines 1-31** -> Added a controller for the buyNow webpage. Ensures that a product out of stock cannot be purchased, and any product that is purchased is decremented in quantity by 1. [Full Code](/src/main/java/com/example/demo/controllers/BuyNowController.java)  
+   **Lines 1-31** -> Added a controller for the buyNow webpage. Ensures that a product out of stock cannot be purchased, and any product that is purchased is decremented in quantity by 1. [Full Code](/src/main/java/com/example/demo/controllers/BuyNowController.java)  
 
 File: *successfulpurchase.css*  
-**Lines 1-34** -> Added a style sheet to match the theme of the application for successpurchase.html  
+   **Lines 1-34** -> Added a style sheet to match the theme of the application for successpurchase.html  
 
 File: *unsuccessfulpurchase.html*  
-**Lines 1-34** -> Added a style sheet to match the theme of the application for unsuccessfulpurchase.html  
+   **Lines 1-34** -> Added a style sheet to match the theme of the application for unsuccessfulpurchase.html  
 
 G.  Modify the parts to track maximum and minimum inventory by doing the following:  
 •  Add additional fields to the part entity for maximum and minimum inventory.  
 •  Modify the sample inventory to include the maximum and minimum fields.  
 •  Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.  
 •  Rename the file the persistent storage is saved to.  
-•  Modify the code to enforce that the inventory is between or at the minimum and maximum value.  
+•  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
+
+File: *Part.java*  
+   **Lines 33-36** -> Added Integer values for min/max inventory. Also creates columns in the database.  
+   **Lines 60-66** -> Created a new constructor to handle all entities.  
+   **Lines 101-115** -> Created getters & setters for max/min inventory.  
+
+File: *BootStrapData.java*  
+   **Lines 72,73,80,81,88,89,97,98,106,107 -> Used Getter & Setter methods for each part.  
+
+File: *InhousePartForm.html*  
+   **Lines 24-28** -> Added text inputs for the in-house part inventory so users can set the minimum and maximum values for each part.  
+
+File: *OutsourcedPartForm.html*  
+   **Lines 25-29** -> Added text inputs for the outsourced part inventory so users can set the minimum and maximum values for each part.  
+
+File: *spring-boot.h2.db102.mv.db
+   Renamed file to **precision-firearms-db** and updated the url accordingly.  
+
+File: *application.properties*
+   **Line 6** -> updated url to database
+
+
 
 
 

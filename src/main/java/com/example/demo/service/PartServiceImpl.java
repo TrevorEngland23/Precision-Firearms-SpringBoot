@@ -56,6 +56,7 @@ public class PartServiceImpl implements PartService{
 
     @Override
     public void save(Part thePart) {
+            this.partRepository.save(thePart);
             partRepository.save(thePart);
 
     }

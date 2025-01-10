@@ -1,5 +1,5 @@
-package com.example.demo.controllers;
 
+package com.example.demo.controllers;
 import com.example.demo.domain.InhousePart;
 import com.example.demo.domain.OutsourcedPart;
 import com.example.demo.domain.Part;
@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.validation.Valid;
-
 /**
  *
  *
@@ -29,28 +27,33 @@ import javax.validation.Valid;
 public class AddOutsourcedPartController {
     @Autowired
     private ApplicationContext context;
-
     @GetMapping("/showFormAddOutPart")
     public String showFormAddOutsourcedPart(Model theModel){
         Part part=new OutsourcedPart();
         theModel.addAttribute("outsourcedpart",part);
         return "OutsourcedPartForm";
     }
-
     @PostMapping("/showFormAddOutPart")
-    public String submitForm(@Valid @ModelAttribute("outsourcedpart") OutsourcedPart part, BindingResult bindingResult, Model theModel){
-        theModel.addAttribute("outsourcedpart",part);
-        if(bindingResult.hasErrors()){
-            return "OutsourcedPartForm";
+    public String submitForm(@Valid @ModelAttribute("outsourcedpart") OutsourcedPart part, BindingResult bindingResult, Model theModel) {
+        theModel.addAttribute("outsourcedpart", part);
+
+        // Additional custom validation logic if needed
+        if (part.getMinInv() != null && part.getMaxInv() != null && part.getMinInv() > part.getMaxInv()) {
+            bindingResult.rejectValue("minInv", "error.minInv", "Min cannot be greater than Max");
         }
-        else{
-        OutsourcedPartService repo=context.getBean(OutsourcedPartServiceImpl.class);
-        OutsourcedPart op=repo.findById((int)part.getId());
-        if(op!=null)part.setProducts(op.getProducts());
-            repo.save(part);
-        return "confirmationaddpart";}
+        if (part.getInv() < part.getMinInv() || part.getInv() > part.getMaxInv()) {
+            bindingResult.rejectValue("inv", "error.inv", "Inventory must be between " + part.getMinInv() + " and " + part.getMaxInv());
+        }
+
+        // Check if any validation errors are present
+        if (bindingResult.hasErrors()) {
+            return "OutsourcedPartForm";  // Return to form page if there are errors
+        }
+
+        // If validation passes, save the part
+        PartService repo = context.getBean(PartServiceImpl.class);
+        repo.save(part);
+
+        return "confirmationAddPart";
     }
-
-
-
 }

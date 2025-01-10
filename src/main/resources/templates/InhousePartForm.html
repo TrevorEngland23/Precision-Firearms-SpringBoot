@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <title>Part Form</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .errorMsg {
+            color: red;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
 <h1>Inhouse Part Detail</h1>
@@ -16,10 +24,18 @@
 <p><input type="text" th:field="*{name}" placeholder="Name" class="form-control mb-4 col-4"/></p>
 
 <p><input type="text" path="price" th:field="*{price}" placeholder= "Price" class="form-control mb-4 col-4"/></p>
-<p th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</p>
+<span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</span>
 
 <p><input type="text" path="inv" th:field="*{inv}" placeholder="Inventory" class="form-control mb-4 col-4"/></p>
-    <p th:if="${#fields.hasErrors('inv')}" th:errors="*{inv}">Inventory Error</p>
+    <span th:if="${#fields.hasErrors('inv')}" th:errors="*{inv}" class="errorMsg">Inventory Error</span>
+
+    <p><input type="text" th:field="*{minInv}" placeholder="Minimum Inventory" class="form-control mb-4 col-4"/></p>
+    <span th:if="${#fields.hasErrors('minInv')}" th:errors="*{minInv}">Minimum Inventory Error</span>
+
+    <p><input type="text" th:field="*{maxInv}" placeholder="Maximum Inventory" class="form-control mb-4 col-4"></p>
+    <span th:if="${#fields.hasErrors('maxInv')}" th:errors="*{maxInv}">Maximum Inventory Error</span>
+
+
 
     <p><input type="text" th:field="*{partId}" placeholder="Part ID" class="form-control mb-4 col-4"/></p>
 

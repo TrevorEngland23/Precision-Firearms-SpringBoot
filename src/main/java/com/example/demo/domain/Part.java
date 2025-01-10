@@ -1,6 +1,7 @@
 package com.example.demo.domain;
 
 import com.example.demo.validators.ValidDeletePart;
+import org.hibernate.annotations.Columns;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -29,10 +30,12 @@ public abstract class Part implements Serializable {
     double price;
     @Min(value = 0, message = "Inventory value must be positive")
     int inv;
-    @Min(value = 0, message = "Inventory value must be positive")
-    int minInv;
+    @Column(name = "min_inv", nullable = false)
+    @Min(value = 0, message = "Inventory value must be zero or positive")
+    Integer minInv;
+    @Column(name = "max_inv", nullable = false)
     @Max(value = 300, message = "Max value must be between min and max values")
-    int maxInv;
+    Integer maxInv;
 
     @ManyToMany
     @JoinTable(name="product_part", joinColumns = @JoinColumn(name="part_id"),
@@ -40,6 +43,7 @@ public abstract class Part implements Serializable {
     Set<Product> products= new HashSet<>();
 
     public Part() {
+
     }
 
     public Part(String name, double price, int inv) {
@@ -55,7 +59,7 @@ public abstract class Part implements Serializable {
         this.inv = inv;
     }
 
-    public Part(long id, String name, double price, int inv, int minInv, int maxInv) {
+    public Part(long id, String name, double price, int inv, Integer minInv, Integer maxInv) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -63,6 +67,8 @@ public abstract class Part implements Serializable {
         this.minInv = minInv;
         this.maxInv = maxInv;
     }
+
+
 
     public long getId() {
         return id;
@@ -96,13 +102,47 @@ public abstract class Part implements Serializable {
         this.inv = inv;
     }
 
-    public void setMinInv(int minInv) { this.minInv = minInv; }
+    public void setMinInv(Integer minInv) {
+        this.minInv = minInv;
+    }
 
-    public int getMinInv() {return minInv;}
+    public Integer getMinInv() {
+        return minInv;
+    }
 
-    public void setMaxInv(int maxInv) { this.maxInv = maxInv; }
+    public void setMaxInv(Integer maxInv) {
+        this.maxInv = maxInv;
+    }
 
-    public int getMaxInv() { return maxInv; }
+    public Integer getMaxInv() {
+        return maxInv;
+    }
+
+    public boolean isValid() {
+
+        if (minInv != null && maxInv != null && minInv > maxInv) {
+            throw new RuntimeException("Invalid inventory values: Min cannot be greater than Max");
+        }
+        if (inv != 0 && (inv < minInv || inv > maxInv)) {
+            throw new RuntimeException("Invalid inventory values: Inventory is out of range");
+        }
+        return true;
+
+//        if (this.inv < 0) {
+//            throw new RuntimeException("Invalid inventory values: Inventory cannot be null");
+//        }
+//        if (this.minInv == null || this.maxInv == null) {
+//            throw new RuntimeException("Invalid inventory values: Min or Max cannot be null");
+//        }
+//        if (this.minInv > this.maxInv) {
+//            throw new RuntimeException("Invalid inventory values: Min cannot be greater than Max");
+//        }
+//        if (this.inv < this.minInv || this.getInv()> this.getMaxInv()) {
+//            throw new RuntimeException("Invalid inventory values: Inventory is out of range");
+//        }
+//        return true;
+    }
+
 
     public Set<Product> getProducts() {
         return products;
