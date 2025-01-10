@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.validation.Valid;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  *
@@ -27,6 +30,8 @@ import javax.validation.Valid;
 public class AddOutsourcedPartController {
     @Autowired
     private ApplicationContext context;
+    private Set<Part> parts = new HashSet<>();
+    private boolean check = false;
     @GetMapping("/showFormAddOutPart")
     public String showFormAddOutsourcedPart(Model theModel){
         Part part=new OutsourcedPart();
@@ -37,20 +42,14 @@ public class AddOutsourcedPartController {
     public String submitForm(@Valid @ModelAttribute("outsourcedpart") OutsourcedPart part, BindingResult bindingResult, Model theModel) {
         theModel.addAttribute("outsourcedpart", part);
 
-        // Additional custom validation logic if needed
-        if (part.getMinInv() != null && part.getMaxInv() != null && part.getMinInv() > part.getMaxInv()) {
-            bindingResult.rejectValue("minInv", "error.minInv", "Min cannot be greater than Max");
-        }
-        if (part.getInv() < part.getMinInv() || part.getInv() > part.getMaxInv()) {
-            bindingResult.rejectValue("inv", "error.inv", "Inventory must be between " + part.getMinInv() + " and " + part.getMaxInv());
+        try {
+            part.isValid();
+        } catch (RuntimeException e) {
+            bindingResult.reject("globalError", e.getMessage());
+
+            return "OutsourcedPartForm";
         }
 
-        // Check if any validation errors are present
-        if (bindingResult.hasErrors()) {
-            return "OutsourcedPartForm";  // Return to form page if there are errors
-        }
-
-        // If validation passes, save the part
         PartService repo = context.getBean(PartServiceImpl.class);
         repo.save(part);
 

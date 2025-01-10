@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.validation.Valid;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  *
@@ -26,6 +29,8 @@ import javax.validation.Valid;
 public class AddInhousePartController {
     @Autowired
     private ApplicationContext context;
+    private Set<Part> parts = new HashSet<>();
+    private boolean check = false;
 
     @GetMapping("/showFormAddInPart")
     public String showFormAddInhousePart(Model theModel) {
@@ -36,23 +41,16 @@ public class AddInhousePartController {
 
     @PostMapping("/showFormAddInPart")
     public String submitForm(@Valid @ModelAttribute("inhousepart") InhousePart part, BindingResult theBindingResult, Model theModel) {
-        // Add the part object to the model so it's accessible in the view
         theModel.addAttribute("inhousepart", part);
 
-        // Additional custom validation logic if needed
-        if (part.getMinInv() != null && part.getMaxInv() != null && part.getMinInv() > part.getMaxInv()) {
-            theBindingResult.rejectValue("minInv", "error.minInv", "Min cannot be greater than Max");
-        }
-        if (part.getInv() < part.getMinInv() || part.getInv() > part.getMaxInv()) {
-            theBindingResult.rejectValue("inv", "error.inv", "Inventory must be between " + part.getMinInv() + " and " + part.getMaxInv());
+        try {
+            part.isValid();
+        } catch (RuntimeException e) {
+            theBindingResult.reject("globalError", e.getMessage());
+
+            return "InhousePartForm";
         }
 
-        // Check if any validation errors are present
-        if (theBindingResult.hasErrors()) {
-            return "InhousePartForm";  // Return to form page if there are errors
-        }
-
-        // If validation passes, save the part
         PartService repo = context.getBean(PartServiceImpl.class);
         repo.save(part);
 
