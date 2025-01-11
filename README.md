@@ -104,8 +104,8 @@ File: *Part.java*
    **Lines 60-66** -> Created a new constructor to handle all entities.  
    **Lines 101-115** -> Created getters & setters for max/min inventory.  
 
-File: *BootStrapData.java*  
-   **Lines 72,73,80,81,88,89,97,98,106,107 -> Used Getter & Setter methods for each part.  
+File: *BootStrapData.java*   
+   **Lines 72,73,80,81,88,89,97,98,106,107** -> Used Getter & Setter methods for each part.  
 
 File: *InhousePartForm.html*  
    **Lines 24-28** -> Added text inputs for the in-house part inventory so users can set the minimum and maximum values for each part.  
@@ -113,16 +113,16 @@ File: *InhousePartForm.html*
 File: *OutsourcedPartForm.html*  
    **Lines 25-29** -> Added text inputs for the outsourced part inventory so users can set the minimum and maximum values for each part.  
 
-File: *spring-boot.h2.db102.mv.db
-   Renamed file to **precision-firearms-db** and updated the url accordingly.  
+File: *spring-boot.h2.db102.mv.db*  
+   Renamed file to *precision-firearms-db* and updated the url accordingly.  
 
-File: *application.properties*
+File: *application.properties*  
    **Line 6** -> Updated the url to the database to *jdbc:h2:~/precision-firearms-db*.  
 
 File: *Part.java*  
    **Lines 119-130** -> Added a method isValid() that enforces logical rules on the minimum and maximum values. Throws an exception in the event a rule is broken.  
 
-File: *AddOutsourcedPartController.java*
+File: *AddOutsourcedPartController.java*  
    **Lines 41-58** -> Changed the @PostMapping logic to enforce the use of the isValid() method defined in Part.java.  
 
 File *AddInhousePartController.java*  
