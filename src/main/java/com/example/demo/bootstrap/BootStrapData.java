@@ -113,18 +113,15 @@ public class BootStrapData implements CommandLineRunner {
             parts.add(firstOutsourcedPart);
             parts.add(secondOutsourcedPart);
 
-            if (numProducts == 0) {
+            if (numProducts == 0 && numParts == 0) {
                 for (Product product : products) {
                     productRepository.save(product);
                 }
+                for (Part part : parts) {
+                    partRepository.save(part);
+                }
             }
 
-        if (numParts == 0) {
-
-            for (Part part: parts) {
-                partRepository.save(part);
-            }
-        }
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Products: "+productRepository.count());
         System.out.println(productRepository.findAll());
