@@ -60,18 +60,18 @@ public class AddPartController {
                              BindingResult theBindingResult, Model theModel) {
 
         if (theBindingResult.hasErrors()) {
-            return "showFormForUpdate";  // Return back to the form with error messages
+            return "showFormForUpdate";
         }
 
         try {
-            partService.save(thePart);  // Save the updated part
+            partService.save(thePart);
         } catch (RuntimeException e) {
-            theModel.addAttribute("error", e.getMessage());  // Display the error message
-            return "showFormForUpdate";  // Return back to the form with the error
+            theModel.addAttribute("error", e.getMessage());
+            return "showFormForUpdate";
         }
 
-        partService.save(thePart);  // Save the updated part
-        return "redirect:/confirmationAddPart";  // Redirect after successful save
+        partService.save(thePart);
+        return "redirect:/confirmationAddPart";
     }
 
 
@@ -87,5 +87,4 @@ public class AddPartController {
             return "negativeerror";
         }
     }
-
 }
