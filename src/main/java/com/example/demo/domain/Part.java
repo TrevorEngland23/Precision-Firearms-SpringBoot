@@ -34,7 +34,7 @@ public abstract class Part implements Serializable {
     @Min(value = 0, message = "Inventory value must be zero or positive")
     Integer minInv;
     @Column(name = "max_inv", nullable = false)
-    @Max(value = 300, message = "Max value must be between min and max values")
+    @Max(value = 500, message = "Max value must be between min and max values")
     Integer maxInv;
 
     @ManyToMany
@@ -124,8 +124,11 @@ public abstract class Part implements Serializable {
         if (minInv == null || maxInv == null) {
             throw new RuntimeException("Invalid inventory values: Minimum and Maximum Inventory must be set!");
         }
-        if (inv < minInv || inv > maxInv) {
-            throw new RuntimeException("Invalid inventory values: Inventory is out of range");
+        if (inv < minInv) {
+            throw new RuntimeException("Invalid inventory values: Inventory cannot be less than minimum Inventory!");
+        }
+        if (inv > maxInv) {
+            throw new RuntimeException("Invalid inventory values: Inventory cannot be greater than maximum Inventory!");
         }
         return true;
     }
