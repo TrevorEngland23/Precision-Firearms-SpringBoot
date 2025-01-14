@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Part Form</title>
@@ -29,24 +29,24 @@
 </nav>
 
 <h1>Inhouse Part Details</h1>
-<form action="#" th:action="@{/showFormAddInPart}" th:object="${inhousepart}" method="POST"}>
+<form action="#" th:action="@{/showFormAddInPart}" th:object="${inhousepart}" method="POST">
 
 <!-- Add hidden form field to handle update -->
     <p><input type="hidden" th:field="*{id}"/></p>
 
-<p><input type="text" th:field="*{name}" placeholder="Name" class="form-control mb-4 col-4"/></p>
+<p><input type="text" th:field="*{name}" placeholder="Name" class="form-control mb-4 col-4" required/></p>
 
 <p><input type="text"  th:field="*{price}" placeholder= "Price" class="form-control mb-4 col-4"/></p>
-<span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</span>
+<!--<span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</span>-->
 
-<p><input type="text" path="inv" th:field="*{inv}" placeholder="Inventory" class="form-control mb-4 col-4" required/></p>
-    <span th:if="${#fields.hasErrors('inv')}" th:errors="*{inv}">Inventory Error</span>
+<p><input type="text" th:field="*{inv}" placeholder="Inventory" class="form-control mb-4 col-4" required/></p>
+<!--    <span th:if="${#fields.hasErrors('inv')}" th:errors="*{inv}">Inventory Error</span>-->
 
     <p><input type="text" th:field="*{minInv}" placeholder="Minimum Inventory" class="form-control mb-4 col-4"/></p>
-    <span th:if="${#fields.hasErrors('minInv')}" th:errors="*{minInv}">Minimum Inventory Error</span>
+<!--    <span th:if="${#fields.hasErrors('minInv')}" th:errors="*{minInv}">Minimum Inventory Error</span>-->
 
     <p><input type="text" th:field="*{maxInv}" placeholder="Maximum Inventory" class="form-control mb-4 col-4"></p>
-    <span th:if="${#fields.hasErrors('maxInv')}" th:errors="*{maxInv}">Maximum Inventory Error</span>
+<!--    <span th:if="${#fields.hasErrors('maxInv')}" th:errors="*{maxInv}">Maximum Inventory Error</span>-->
 
 
 
@@ -58,7 +58,5 @@
     <br>
 <p><input type="submit" value="Submit" /></p>
 </form>
-<p><errors path="price" cssClass=""error/><p>
-
 </body>
 </html>
