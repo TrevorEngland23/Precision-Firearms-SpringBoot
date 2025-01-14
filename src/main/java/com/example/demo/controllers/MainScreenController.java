@@ -20,23 +20,12 @@ import java.util.List;
 
 @Controller
 public class MainScreenController {
-   // private final PartRepository partRepository;
-   // private final ProductRepository productRepository;'
-
-    private PartService partService;
-    private ProductService productService;
-
-    private List<Part> theParts;
-    private List<Product> theProducts;
-
- /*   public MainScreenControllerr(PartRepository partRepository, ProductRepository productRepository) {
-        this.partRepository = partRepository;
-        this.productRepository = productRepository;
-    }*/
+    private final PartService partService;
+    private final ProductService productService;
 
     public MainScreenController(PartService partService,ProductService productService){
-        this.partService=partService;
-        this.productService=productService;
+        this.partService = partService;
+        this.productService = productService;
     }
 
     @GetMapping("/mainscreen")
@@ -45,7 +34,7 @@ public class MainScreenController {
         List<Part> partList = partService.listAll(partkeyword);
         theModel.addAttribute("parts", partList);
         theModel.addAttribute("partkeyword", partkeyword);
-        //    theModel.addAttribute("products",productService.findAll());
+
         List<Product> productList = productService.listAll(productkeyword);
         theModel.addAttribute("products", productList);
         theModel.addAttribute("productkeyword", productkeyword);

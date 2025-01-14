@@ -1,12 +1,9 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.InhousePart;
-import com.example.demo.domain.OutsourcedPart;
 import com.example.demo.repositories.InhousePartRepository;
-import com.example.demo.repositories.OutsourcedPartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -41,8 +38,7 @@ public class InhousePartServiceImpl implements InhousePartService {
             thePart = result.get();
         }
         else {
-            // we didn't find the InhousePart id
-            //throw new RuntimeException("Did not find part id - " + theId);
+
             return null;
         }
 
@@ -53,7 +49,6 @@ public class InhousePartServiceImpl implements InhousePartService {
     public void save(InhousePart thePart) {
         thePart.isValid();
         partRepository.save(thePart);
-
     }
 
     @Override
@@ -61,5 +56,4 @@ public class InhousePartServiceImpl implements InhousePartService {
         Long theIdl=(long)theId;
         partRepository.deleteById(theIdl);
     }
-
 }

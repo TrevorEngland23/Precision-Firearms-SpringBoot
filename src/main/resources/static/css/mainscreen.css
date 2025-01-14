@@ -2,6 +2,7 @@
 * {
     color: #e0e0e0;
 }
+
 body {
     background-color: #1c1c1c;
     color: #e0e0e0;
@@ -69,7 +70,6 @@ h2 {
     text-decoration: none;
 }
 
-/* Tables */
 table {
     width: 100%;
     margin-top: 20px;
@@ -157,5 +157,4 @@ a:hover {
     background-color: #444;
     border-color: #d4af37;
     outline: 2px solid #d4af37;
-
 }

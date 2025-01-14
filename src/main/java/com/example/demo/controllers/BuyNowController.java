@@ -1,11 +1,9 @@
 package com.example.demo.controllers;
+
 import com.example.demo.domain.Product;
-import com.example.demo.repositories.ProductRepository;
 import com.example.demo.service.ProductService;
-import com.example.demo.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -29,16 +27,5 @@ public class BuyNowController {
        } else {
            return "unsuccessfulpurchase";
        }
-
-//        Product product = repo.findById(productID);
-//        int inv = product.getInv();
-//
-//        if (inv > 0) {
-//            product.setInv(inv - 1);;
-//            repo.save(product);
-//            return "successfulpurchase";
-//        } else {
-//            return "unsuccessfulpurchase";
-//        }
     }
 }

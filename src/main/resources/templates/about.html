@@ -4,11 +4,11 @@
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
 
 
     <link rel="stylesheet" th:href="@{/css/about.css}">
@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/mainscreen">Home</a>
+                    <a aria-current="page" class="nav-link" href="/mainscreen">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="about" th:href="'/about'">About</a>
@@ -33,7 +33,7 @@
 </nav>
 <div class="container">
     <h1>PRECISION FIREARMS</h1>
-    <img src="https://www.svgrepo.com/show/68180/shooting-target.svg" alt="bullseye">
+    <img alt="bullseye" src="https://www.svgrepo.com/show/68180/shooting-target.svg">
     <hr>
     <br>
 
@@ -41,25 +41,36 @@
     <div class="accordion" id="accordionExample">
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button aria-controls="collapseOne" aria-expanded="true" class="accordion-button" data-bs-target="#collapseOne"
+                        data-bs-toggle="collapse" type="button">
                     About Us
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-collapse collapse" data-bs-parent="#accordionExample" id="collapseOne">
                 <div class="accordion-body">
-                    <p>Welcome to <strong>Precision Firearms</strong>, a veteran owned firearm supply store where passion for excellence and commitment to our customers drive everything we do. Our mission is simple: to provide top-quality firearms and accessories, exceptional service, and a trustworthy experience that makes our customers feel valued, empowered, and confident in their choices.</p>
+                    <p>Welcome to <strong>Precision Firearms</strong>, a veteran owned firearm supply store where
+                        passion for excellence and commitment to our customers drive everything we do. Our mission is
+                        simple: to provide top-quality firearms and accessories, exceptional service, and a trustworthy
+                        experience that makes our customers feel valued, empowered, and confident in their choices.</p>
                 </div>
             </div>
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button aria-controls="collapseTwo" aria-expanded="false" class="accordion-button collapsed"
+                        data-bs-target="#collapseTwo" data-bs-toggle="collapse" type="button">
                     Our Mission
                 </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-collapse collapse" data-bs-parent="#accordionExample" id="collapseTwo">
                 <div class="accordion-body">
-                    <p><strong>Our Mission at Precision Firearms</strong> is to provide firearm enthusiasts with high-quality, reliable products that enhance both performance and safety. We are committed to offering exceptional customer service, fostering trust, and delivering value with every purchase. At Precision Firearms, we strive to build a loyal community of responsible owners and enthusiasts who appreciate the craftsmanship behind each product we offer. Our mission is to empower our customers by equipping them with the tools they need to succeed, while maintaining the highest standards of safety, service, and integrity.</p>
+                    <p><strong>Our Mission at Precision Firearms</strong> is to provide firearm enthusiasts with
+                        high-quality, reliable products that enhance both performance and safety. We are committed to
+                        offering exceptional customer service, fostering trust, and delivering value with every
+                        purchase. At Precision Firearms, we strive to build a loyal community of responsible owners and
+                        enthusiasts who appreciate the craftsmanship behind each product we offer. Our mission is to
+                        empower our customers by equipping them with the tools they need to succeed, while maintaining
+                        the highest standards of safety, service, and integrity.</p>
 
 
                 </div>
@@ -67,29 +78,39 @@
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <button aria-controls="collapseThree" aria-expanded="false" class="accordion-button collapsed"
+                        data-bs-target="#collapseThree" data-bs-toggle="collapse" type="button">
                     Join the Squad
                 </button>
             </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-collapse collapse" data-bs-parent="#accordionExample" id="collapseThree">
                 <div class="accordion-body">
-                    <p>To learn more about our business and receive updates, sign up <a class="signup" href="#" data-bs-toggle="modal" data-bs-target="#signup">here</a>.</p>
-                    <div class="modal fade" id="signup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <p>To learn more about our business and receive updates, sign up <a class="signup" data-bs-target="#signup"
+                                                                                        data-bs-toggle="modal"
+                                                                                        href="#">here</a>.
+                    </p>
+                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="signup"
+                         tabindex="-1">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Register an Email</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
+                                            type="button"></button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="mb-3">
-                                        <label for="emailInput" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" id="emailInput" placeholder="user@example.com">
+                                        <label class="form-label" for="emailInput">Email address</label>
+                                        <input class="form-control" id="emailInput" placeholder="user@example.com"
+                                               type="email">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn" id="submitBtn" style="background-color: #d4af37">Submit</button>
+                                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close
+                                    </button>
+                                    <button class="btn" id="submitBtn" style="background-color: #d4af37" type="button">
+                                        Submit
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -106,6 +127,7 @@
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // got this from Google after spending way too long trying to cover all edge cases...
         return emailRegex.test(email);
     }
+
     const submitBtn = document.getElementById('submitBtn');
     let userEmail = document.getElementById('emailInput');
     const modalHTML = document.getElementById('signup');

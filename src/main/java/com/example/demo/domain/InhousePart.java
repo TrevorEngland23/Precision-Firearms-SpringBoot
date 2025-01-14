@@ -13,7 +13,6 @@ import javax.persistence.Entity;
 @DiscriminatorValue("1")
 public class InhousePart extends Part{
     int partId;
-    String companyName;
 
     public InhousePart() {
     }

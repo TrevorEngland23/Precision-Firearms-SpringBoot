@@ -25,6 +25,7 @@ input[type="text"]:focus {
     background-color: #2b2b2b;
     color: #e0e0e0;
 }
+
 #home {
     text-decoration: underline;
     text-decoration-color: #d4af37;

@@ -1,12 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.Part;
 import com.example.demo.domain.Product;
-import com.example.demo.repositories.PartRepository;
 import com.example.demo.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +30,7 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Product findById(int theId) {
-        Long theIdl=(long)theId;
+        Long theIdl = (long)theId;
         Optional<Product> result = productRepository.findById(theIdl);
 
         Product theProduct = null;
@@ -42,7 +39,6 @@ public class ProductServiceImpl implements ProductService{
             theProduct = result.get();
         }
         else {
-            // we didn't find the product id
             throw new RuntimeException("Did not find part id - " + theId);
         }
 
@@ -57,11 +53,11 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public void deleteById(int theId) {
-        Long theIdl=(long)theId;
+        Long theIdl = (long)theId;
         productRepository.deleteById(theIdl);
     }
     public List<Product> listAll(String keyword){
-        if(keyword !=null){
+        if (keyword !=null) {
             return productRepository.search(keyword);
         }
         return (List<Product>) productRepository.findAll();

@@ -1,4 +1,5 @@
 package com.example.demo.domain;
+
 import com.example.demo.validators.ValidEnufParts;
 import com.example.demo.validators.ValidProductPrice;
 import javax.persistence.*;
@@ -14,7 +15,7 @@ import java.util.Set;
  *
  */
 @Entity
-@Table(name="Products")
+@Table(name = "Products")
 @ValidProductPrice
 @ValidEnufParts
 public class Product implements Serializable {
@@ -88,6 +89,7 @@ public class Product implements Serializable {
     public String toString(){
         return this.name;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
