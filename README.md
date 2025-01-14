@@ -162,7 +162,7 @@ J.  Remove the class files for any unused validators in order to clean your code
 
 K.  Demonstrate professional communication in the content and presentation of your submission.  
 
-*Of Note*  
+**Of Note:**  
 Some files, such as the HTML and CSS files, I have modified throughout the development process. To keep things simple, the general changes for these files include adding a bootstrap navigation bar to each html file. Additionally, the "<a href="http://localhost:8080/mainscreen">Back to mainscreen</a>" element is either in the navigation bar at "Home" or included in the original place.  
 
 

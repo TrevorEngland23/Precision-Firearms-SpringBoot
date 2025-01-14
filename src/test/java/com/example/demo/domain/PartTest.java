@@ -193,5 +193,4 @@ class PartTest {
         partOut.setMaxInv(maxInv);
         assertEquals(maxInv,partOut.getMaxInv());
     }
-
 }
