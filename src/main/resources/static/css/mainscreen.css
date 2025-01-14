@@ -66,6 +66,7 @@ h2 {
     color: #000;
     border-color: #d4af37;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    text-decoration: none;
 }
 
 /* Tables */

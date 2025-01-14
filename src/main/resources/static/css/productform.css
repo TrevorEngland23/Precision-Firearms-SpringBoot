@@ -170,3 +170,10 @@ a:hover {
     border-color: #d4af37;
     outline: 2px solid #d4af37;
 }
+
+.errorMsg p {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin: 5px 0;
+    list-style: none;
+}
