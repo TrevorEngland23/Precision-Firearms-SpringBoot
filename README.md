@@ -131,6 +131,43 @@ File *AddInhousePartController.java*
 Files *updateprod.css*, *productform.css*  
    **Lines 1-111**, **1-172** (respectively) -> Added stylesheets to fit the theme of the application.  
 
+File: *mainscreen.html*  
+   **Lines 56-57** -> Added the Min Inventory and Max Inventory table headings.  
+
+H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:  
+•  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.  
+•  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.  
+•  Display error messages when adding and updating parts if the inventory is greater than the maximum.  
+
+File: *Part.java*  
+   **Lines 121-134** -> Added multiple checks to enforce the minimum and maximum values are set, and inventory must fall within the range of minimum and maximum values.  
+
+File: *AddPartController.java*  
+   **Lines 59-75** -> Replaced logic for updatePart to save the part and update partService and display a confirmation page if no exceptions are thrown, otherwise return the form back.  
+
+File: *AddProductController.java*  
+   **Lines 32-35** -> Added private fields partService and partRepository
+   **Lines 76-104** -> Added logic to the submitForm method that handles the logic for adding / updating products IF the associated parts inventory for that product allows for it. Added additional error messages for if a user requests an increase in the number of product that will cause the associated part to fall into the negative numbers. If the part inventory supports the request, the user should be allowed to update / add their product, which will decrement  
+                        the part inventory by the amount of products requested.  
+
+I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.  
+
+File: *PartTest.java*  
+   **Lines 161-195** -> Added unit tests (assertEquals) on get/set max and min inventory.  
+
+J.  Remove the class files for any unused validators in order to clean your code.  
+
+*Will go through code to remove class files and clean up extra whitespace in code*  
+
+
+K.  Demonstrate professional communication in the content and presentation of your submission.  
+
+*Of Note*  
+Some files, such as the HTML and CSS files, I have modified throughout the development process. To keep things simple, the general changes for these files include adding a bootstrap navigation bar to each html file. Additionally, the "<a href="http://localhost:8080/mainscreen">Back to mainscreen</a>" element is either in the navigation bar at "Home" or included in the original place.  
+
+
+
+
 
 
 
