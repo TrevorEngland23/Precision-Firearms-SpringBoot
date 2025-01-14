@@ -36,26 +36,33 @@ Follow these steps to set up the project locally:
 ## Features  
 
 Upon initial load of the application, sample data is populated into the database. Feel free to delete this data and add your own.  
+
 ![screenshot](images/Mainscreen.png)  
 ![screenshot](images/Mainscreen2.png)  
 
-To add parts, click on *ADD INHOUSE PART* or *ADD OUTSOURCED PART*. Errors will occur if you do not set an inventory count, maximum and minimum inventory, or if your inventory count does not fall within those bounds. Similarly, you can add products by clicking *ADD PRODUCT*.    
+To add parts, click on *ADD INHOUSE PART* or *ADD OUTSOURCED PART*. Errors will occur if you do not set an inventory count, maximum and minimum inventory, or if your inventory count does not fall within those bounds. Similarly, you can add products by clicking *ADD PRODUCT*. 
+
 ![screenshot](images/addParts.png)  
 
 Once you're satisfied with your parts and products, click on *UPDATE* next to one of your products. Here, you can associate parts with products. The system will not allow you to associate parts with a product if the assignment will violate the minimum inventory rules set for the associated part.  
+
 ![screenshot](images/editProducts.png)  
 ![screenshot](images/associatedParts.png)  
 
 Need to find a part or product from the system but don't want to scroll?  Use the filter feature on the mainscreen page to find the product.  
+
 ![screenshot](images/filter.png)  
 
 If you need to delete a product or part, simply click *DELETE*. This will prompt you with an alert to ensure you want to delete the item.  
+
 ![screenshot](images/checkOnDelete.png)  
 
 Feel free to check out the **About** page. You can get there by clicking the *About* link in the navigation bar.  
+
 ![screenshot](images/aboutUsPage.png)  
 
 While you're there, you can read about the company and their goals, as well as sign up for email alerts (and get a randomized discount code!)  
+
 ![screenshot](images/registeremail.png)  
 
 ---
