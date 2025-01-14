@@ -118,9 +118,6 @@ public abstract class Part implements Serializable {
 
     public boolean isValid() {
 
-        if (minInv == null || maxInv == null) {
-            throw new RuntimeException("Invalid inventory values: Minimum and Maximum Inventory must be set!");
-        }
         if (minInv != null && maxInv != null && minInv > maxInv) {
             throw new RuntimeException("Invalid inventory values: Minimum Inventory cannot be greater than Maximum Inventory!");
         }
