@@ -155,7 +155,12 @@ I.  Add at least two unit tests for the maximum and minimum fields to the PartTe
 File: *PartTest.java*  
    **Lines 161-195** -> Added unit tests (assertEquals) on get/set max and min inventory.  
 
+File: *AddProductController.java*  
+   **Lines 104-108** -> Fixed logic to where if a user DECREMENTS a product in the update section, the associated part does not also decrement. Logically, parts should only be decrementing if MORE products are being added in, not if the product needs to be decremented for some reason.  
+
 J.  Remove the class files for any unused validators in order to clean your code.  
+
+Removed the validator for **delete price** as I have my own implementation elsewhere.  
 
 *Will go through code to remove class files and clean up extra whitespace in code*  
 
