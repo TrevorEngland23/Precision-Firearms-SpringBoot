@@ -1,7 +1,6 @@
 package com.example.demo.controllers;
 
 import com.example.demo.domain.InhousePart;
-import com.example.demo.domain.Part;
 import com.example.demo.service.PartService;
 import com.example.demo.service.PartServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  *
