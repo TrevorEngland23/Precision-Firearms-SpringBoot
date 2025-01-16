@@ -21,7 +21,7 @@ Follow these steps to set up the project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://gihub.com/TrevorEngland23/Precision-Firearms-Springboot
+   git clone https://github.com/TrevorEngland23/Precision-Firearms-Springboot
 
 2. Navigate to the project directory:
    ```bash
